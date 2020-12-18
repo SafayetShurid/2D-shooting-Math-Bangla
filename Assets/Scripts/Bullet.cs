@@ -41,10 +41,33 @@ public class Bullet : MonoBehaviour
         int numberType = (int)collision.gameObject.GetComponent<Number>().Type;
         int bulletType = (int)Type;
 
-        if (numberType == bulletType)
+        if(numberType!=0) //checks for Even
         {
-            Destroy(collision.gameObject);
-            Destroy(this.gameObject);
+            if (numberType == bulletType)
+            {
+                GameManager.instance.ScoreUp(collision.gameObject.GetComponent<Number>());
+                Destroy(collision.gameObject);
+                Destroy(this.gameObject);
+            }
         }
+
+        else if(numberType == 0)
+        {
+            if (numberType == bulletType) //checks for Prime
+            {
+                GameManager.instance.BonusScoreUp(collision.gameObject.GetComponent<Number>());
+                Destroy(collision.gameObject);
+                Destroy(this.gameObject);
+            }
+
+            else if (numberType != bulletType && bulletType == 1)
+            {
+                GameManager.instance.ScoreUp(collision.gameObject.GetComponent<Number>());
+                Destroy(collision.gameObject);
+                Destroy(this.gameObject);
+            }
+        }
+       
+       
     }
 }

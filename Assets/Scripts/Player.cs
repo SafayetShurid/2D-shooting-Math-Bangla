@@ -101,15 +101,15 @@ public class Player : MonoBehaviour
 
     public void ChangeBullet()
     {
-        if (Input.GetKey(KeyCode.I))
+        if (Input.GetKey(KeyCode.A))
         {
             BulletType = Bullet.BulletType.Even;
         }
-        if (Input.GetKey(KeyCode.O))
+        if (Input.GetKey(KeyCode.S))
         {
             BulletType = Bullet.BulletType.Odd;
         }
-        if (Input.GetKey(KeyCode.P))
+        if (Input.GetKey(KeyCode.D))
         {
             BulletType = Bullet.BulletType.Prime;
         }

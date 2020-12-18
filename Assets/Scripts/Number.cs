@@ -17,11 +17,16 @@ public class Number : MonoBehaviour
     public int DecimalNumber;
     public int SingleNumber;
     public SpriteRenderer[] SpriteRenderers;
+    public SpriteRenderer PlaneRenderer;
     public Sprite[] BanglaNumbersSprites = new Sprite[10];
+    public Sprite[] Planes = new Sprite[3];
 
 
     void Start()
     {
+        
+        PlaneRenderer.sprite = Planes[Random.Range(0, 3)];
+        //SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
         SetNumberType();
         SetSprites(DecimalNumber,SingleNumber);
 
@@ -76,7 +81,7 @@ public class Number : MonoBehaviour
 
     void SetSprites(int DecimalNumber,int SingleNumber)
     {
-        SpriteRenderers = GetComponentsInChildren<SpriteRenderer>();
+       
         SpriteRenderers[0].sprite = BanglaNumbersSprites[DecimalNumber];
         SpriteRenderers[1].sprite = BanglaNumbersSprites[SingleNumber];
     }
